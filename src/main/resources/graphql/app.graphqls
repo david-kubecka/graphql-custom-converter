@@ -1,0 +1,15 @@
+enum TransactionType { TRANSFER, CHARGE }
+
+input Money {
+    currency: String
+    amount: Float
+}
+
+input Transaction {
+    value: Money
+    transactionType: TransactionType = TRANSFER
+}
+
+type Query {
+    processTransaction(transaction: Transaction): Boolean
+}
